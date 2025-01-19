@@ -7,6 +7,7 @@ function App() {
 
   return (
     <>
+    <h1>Aplicación del tiempo</h1>
       <WeatherApp />
     </>
   )
