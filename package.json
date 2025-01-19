@@ -1,7 +1,6 @@
 {
   "name": "tiempo-app",
   "private": true,
-  "homepage": "https://carlosmorenodev.github.io/weather-app",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
