@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './weatherApp.css';
+
+//Icons
+import { FaWind } from "react-icons/fa6";
+import { WiHumidity } from "react-icons/wi";
+import { LiaThermometerHalfSolid } from "react-icons/lia";
+import { IoUmbrella } from "react-icons/io5";
+
+
+
 
 function WeatherApp() {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState('Torremolinos');
 
- 
+
 
   useEffect(() => {
     const apiKey = 'ffb6a4d88de64d339f3115612251501';
-    //const apiKey = import.meta.env.VITE_API_KEY;
-    
-    //const city = 'Nueva York';
-
-
-    //const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
-    
+
 
     axios.get(apiUrl)
       .then(response => {
@@ -33,25 +37,26 @@ function WeatherApp() {
 
   return (
 
-    <div>
+    <div className='weather-app-container'>
       {weatherData && (
         <>
           <input type="text" value={city} onChange={handleCityChange} />
           {weatherData ? (
-            <div>
-              <p>Última actualización: {weatherData.current.last_updated}</p>
-              <p>{weatherData.location.localtime}</p>
-              <h1>El clima en {weatherData.location.name}, {weatherData.location.region}</h1>
-              <img src={weatherData.current.condition.icon} alt="" />
-              <p>Temperatura: {weatherData.current.temp_c} °C</p>
-              <p>Sensación térmica: {weatherData.current.feelslike_c} °C</p>
-              <p>Humedad: {weatherData.current.humidity}%</p>
-              <p>Viento: {weatherData.current.wind_kph} km/h </p>
-              <p>Precipitaciones: {weatherData.current.precip_mm} mm</p>
-              {/* <h1>El clima en {weatherData.name}</h1>
-              <p>Temperatura: {weatherData.main.temp}°C</p>
-              <p>Humedad: {weatherData.main.humidity}%</p> */}
-              {/* Otros datos */}
+            <div className='current-weather'>
+              <h1>{weatherData.location.name}, {weatherData.location.region}</h1>
+              <p className='temperature'>{weatherData.current.temp_c} °C</p>
+              <img className='weather-img' src={weatherData.current.condition.icon} alt="" />
+              
+              <div className="weather-info">
+                <p><LiaThermometerHalfSolid /> {weatherData.current.feelslike_c} °C</p>
+                <p><WiHumidity /> {weatherData.current.humidity}%</p>
+                <p><FaWind /> {weatherData.current.wind_kph} km/h </p>
+                <p><IoUmbrella /> {weatherData.current.precip_mm} mm</p>
+                
+              </div>
+
+              {/* <p>Última actualización: {weatherData.current.last_updated}</p>
+              <p>{weatherData.location.localtime}</p> */}
             </div>
 
           ) : (
