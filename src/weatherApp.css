@@ -4,6 +4,8 @@
     align-items: center;
     gap: 20px;
     padding: 10px;
+
+    font-family: "Roboto", serif;
 }
 
 input {
@@ -32,17 +34,19 @@ input {
 .weather-info {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     gap: 20px;
     margin-block: 10px;
+}
 
-    & p {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
+.info-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
 
-        font-size: 1.5rem;
-    }
+.info-icon {
+    font-size: 1.5rem;
 }

@@ -46,13 +46,37 @@ function WeatherApp() {
               <h1>{weatherData.location.name}, {weatherData.location.region}</h1>
               <p className='temperature'>{weatherData.current.temp_c} °C</p>
               <img className='weather-img' src={weatherData.current.condition.icon} alt="" />
-              
+
               <div className="weather-info">
-                <p><LiaThermometerHalfSolid /> {weatherData.current.feelslike_c} °C</p>
-                <p><WiHumidity /> {weatherData.current.humidity}%</p>
-                <p><FaWind /> {weatherData.current.wind_kph} km/h </p>
-                <p><IoUmbrella /> {weatherData.current.precip_mm} mm</p>
                 
+                <div className='info-item'>
+                  <div className="info-icon">
+                    <LiaThermometerHalfSolid />
+                  </div>
+                  <p>{weatherData.current.feelslike_c} °C</p>
+                </div>
+
+                <div className='info-item'>
+                  <div className="info-icon">
+                  <WiHumidity />
+                  </div>
+                  <p>{weatherData.current.humidity} %</p>
+                </div>
+
+                <div className='info-item'>
+                  <div className="info-icon">
+                  <FaWind />
+                  </div>
+                  <p>{weatherData.current.wind_kph} km/h</p>
+                </div>
+
+                <div className='info-item'>
+                  <div className="info-icon">
+                  <IoUmbrella />
+                  </div>
+                  <p>{weatherData.current.precip_mm} mm</p>
+                </div>
+
               </div>
 
               {/* <p>Última actualización: {weatherData.current.last_updated}</p>
