@@ -5,14 +5,18 @@ function WeatherApp() {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState('Torremolinos');
 
+ 
+
   useEffect(() => {
-    //const apiKey = '9b6fcbeb0894af68efc1b3a6861d2ac2';
-    //const apiKey = 'ffb6a4d88de64d339f3115612251501';
     const apiKey = 'ffb6a4d88de64d339f3115612251501';
+    //const apiKey = import.meta.env.VITE_API_KEY;
+    
     //const city = 'Nueva York';
+
 
     //const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+    
 
     axios.get(apiUrl)
       .then(response => {
