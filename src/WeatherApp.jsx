@@ -43,12 +43,17 @@ function WeatherApp() {
           <input type="text" value={city} onChange={handleCityChange} />
           {weatherData ? (
             <div className='current-weather'>
-              <h1>{weatherData.location.name}, {weatherData.location.region}</h1>
+              <header className="weather-location">
+                <h2 className='weather-city'>{weatherData.location.name}</h2>
+                <h3 className="weather-state">{weatherData.location.region}</h3>
+              </header>
+
+              
               <p className='temperature'>{weatherData.current.temp_c} °C</p>
               <img className='weather-img' src={weatherData.current.condition.icon} alt="" />
 
               <div className="weather-info">
-                
+
                 <div className='info-item'>
                   <div className="info-icon">
                     <LiaThermometerHalfSolid />
@@ -58,21 +63,21 @@ function WeatherApp() {
 
                 <div className='info-item'>
                   <div className="info-icon">
-                  <WiHumidity />
+                    <WiHumidity />
                   </div>
                   <p>{weatherData.current.humidity} %</p>
                 </div>
 
                 <div className='info-item'>
                   <div className="info-icon">
-                  <FaWind />
+                    <FaWind />
                   </div>
                   <p>{weatherData.current.wind_kph} km/h</p>
                 </div>
 
                 <div className='info-item'>
                   <div className="info-icon">
-                  <IoUmbrella />
+                    <IoUmbrella />
                   </div>
                   <p>{weatherData.current.precip_mm} mm</p>
                 </div>
