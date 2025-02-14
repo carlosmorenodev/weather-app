@@ -5,6 +5,14 @@
   height: 100vh;
   background-color: #60A0FF;
   display: flex;
-  justify-content: center;
-  
+  justify-content: center;  
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
