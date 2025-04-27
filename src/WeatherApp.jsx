@@ -84,8 +84,7 @@ function WeatherApp() {
 
               </div>
 
-              {/* <p>Última actualización: {weatherData.current.last_updated}</p>
-              <p>{weatherData.location.localtime}</p> */}
+             
             </div>
 
           ) : (
